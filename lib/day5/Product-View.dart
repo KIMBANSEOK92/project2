@@ -33,7 +33,7 @@ class _ProductViewState extends State<ProductView> {
   @override
   void initState() {
     super.initState();
-    getProduct(); // initState에서 데이터 가져오기
+    getProduct();
   }
 
   Future<void> getProduct() async {
@@ -55,15 +55,15 @@ class _ProductViewState extends State<ProductView> {
   Widget build(BuildContext context) {
     if (product == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('제품 상세보기')),
-        body: const Center(child: CircularProgressIndicator()),
+        appBar: AppBar(title: Text('제품 상세보기')),
+        body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('제품 상세보기')),
+      appBar: AppBar(title: Text('제품 상세보기')),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

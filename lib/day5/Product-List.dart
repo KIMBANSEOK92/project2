@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '/firebase_options.dart';
 import 'Product-Add.dart';
-import 'Product-View.dart'; // ✅ ProductView import 추가
+import 'Product-View.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -130,7 +130,32 @@ class ProductList extends StatelessWidget {
                             ),
                             IconButton(
                               icon: Icon(Icons.delete_outline, color: Colors.red),
-                              onPressed: () => deleteProduct(docId),
+                              onPressed: (){
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text("삭제"),
+                                      content: Text("정말 삭제하시겠습니까?"),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            deleteProduct(docId);
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("삭제"),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Text("취소"),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              }
                             ),
                           ],
                         ),
