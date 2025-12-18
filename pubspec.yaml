@@ -38,6 +38,9 @@ dependencies:
   url_launcher:
   portone_flutter:
   flutter_dotenv:
+  circular_menu:
+  firebase_auth:
+  google_sign_in: 5.4.4
 
 
   # The following adds the Cupertino Icons font to your application.
