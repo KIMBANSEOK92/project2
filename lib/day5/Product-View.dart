@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:project2/Day6/Payment.dart';
 import '/firebase_options.dart';
+
 
 
 void main() async {
@@ -74,6 +76,20 @@ class _ProductViewState extends State<ProductView> {
             Text('가격: ₩ ${product!['price']}'),
             SizedBox(height: 8),
             Text('설명: ${product!['info']}'),
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => Payment(
+                            pName: product!['pName'],
+                            price: product!['price'],
+                          )
+                      )
+                  );
+                },
+                child: Text("구매하기")
+            )
           ],
         ),
       ),
